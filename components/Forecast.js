@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View ,StyleSheet} from 'react-native';
-import { black } from 'ansi-colors';
+
 export default class Forecast extends React.Component {
     render() {
         return (
