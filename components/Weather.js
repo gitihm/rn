@@ -11,6 +11,25 @@ export default class Weather extends React.Component {
         }
       }
     }
+    fetchData = () => {
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.props.forecast.zipcode},th&units=metric&APPID=1d2822a6e2fc38ebd9bb825f2dda2cca`)
+          .then((response) => response.json())
+          .then((json) => {
+            this.setState(
+              {
+                forecast: {
+                  main: json.weather[0].main,
+                  description: json.weather[0].description,
+                  temp: json.main.temp
+                }
+              });
+          })
+          .catch((error) => {
+            console.warn(error);
+          });
+      }
+      
+      componentDidMount = () => this.fetchData()    
   
     render() {
       return (
