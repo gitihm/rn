@@ -1,9 +1,6 @@
 import React from 'react';
-
-
 import WeatherScreen from './components/WeatherScreen'
 import ZipCodeScreen from './components/ZipCodeScreen'
-import Weather from './components/Weather'
 import { createStackNavigator } from 'react-navigation';
 
 const RootStack = createStackNavigator({

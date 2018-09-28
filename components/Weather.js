@@ -10,6 +10,11 @@ export default class Weather extends React.Component {
          zipcode:'-', main: '-', description: '-', temp: 0
         }
       }
+      this.state={
+        users:{
+          name:'Ismael Hama',id:'5935512030'
+        }
+      }
     }
     fetchData = () => {
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.props.zipCode},th&units=metric&APPID=1d2822a6e2fc38ebd9bb825f2dda2cca`)
