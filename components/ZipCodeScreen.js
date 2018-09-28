@@ -12,9 +12,9 @@ const availableZipItems = [
 
 const ZipItem = ({place, code, navigate}) => (
     <TouchableHighlight onPress={() => navigate('Weather',{zipCode:code})}>
-        <View style={styles.viewtable}>         
-            <Text style={styles.text}>{place}</Text>
-            <Text style={styles.text}>{code}</Text>
+        <View style={{flex:1,flexDirection: 'row',}}>
+            <Text style={{flex:1,textAlign:"left", fontSize: 16}}>{place}</Text>
+            <Text style={{flex:1,textAlign:"right", fontSize: 16}} >{code}</Text>
         </View>
     </TouchableHighlight>
     
@@ -22,8 +22,8 @@ const ZipItem = ({place, code, navigate}) => (
 
  
 const _keyExtractor = item => item.code
-
 export default class WeatherScreen extends React.Component {
+  
   static navigationOptions = ({navigation}) => {
     return {
         headerTitle: (<Text style={styles.Title}>Choose a zip code</Text>),
@@ -31,6 +31,7 @@ export default class WeatherScreen extends React.Component {
   }
   render() {
     const { navigate } = this.props.navigation;
+    
     return (
       <View>
         <FlatList
@@ -44,6 +45,6 @@ export default class WeatherScreen extends React.Component {
 }
 const styles = StyleSheet.create({
     Title: {width: '100%',},
-    viewtable: { flex: 1, alignSelf: 'stretch', flexDirection: 'row' },
-    text:{ fontSize: 20 ,flex: 1,paddingLeft:30},
+
+    
   });

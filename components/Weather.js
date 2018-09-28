@@ -7,10 +7,9 @@ export default class Weather extends React.Component {
       super(props);
       this.state = {     
         forecast: {
-         zipcode:'-', main: '-', description: '-', temp: 0
+         zipcode:'-', main: '-', description: '-', temp: 0,place:'',
         }
       }
-      
     }
     fetchData = () => {
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.props.zipCode},th&units=metric&APPID=1d2822a6e2fc38ebd9bb825f2dda2cca`)
@@ -22,7 +21,9 @@ export default class Weather extends React.Component {
                     zipcode: this.props.zipCode,
                     main: json.weather[0].main,
                     description: json.weather[0].description,
-                    temp: json.main.temp
+                    temp: json.main.temp,
+                    place:json.name,
+                    
                 }
               });
           })
@@ -31,7 +32,14 @@ export default class Weather extends React.Component {
           });
       } 
       componentDidMount = () => this.fetchData()
+      componentDidUpdate = (prevProps) => {
+        if (prevProps.zipCode !== this.props.zipCode) {
+          this.fetchData()
+        }
+      }
+    
     render() {    
+      console.log("in weather:"+this.props.zipCode)
         return (
             <View style={styles.container}>
                 <ImageBackground source={require('./bg.jpg')} style= {styles.backdrop}>  
