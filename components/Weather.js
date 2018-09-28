@@ -33,7 +33,7 @@ export default class Weather extends React.Component {
     render() {    
         return (
             <View style={styles.container}>
-                <ImageBackground source={require('./bg.jpeg')} style= {styles.backdrop}>  
+                <ImageBackground source={require('./bg.jpg')} style= {styles.backdrop}>  
                     <Forecast {...this.state.forecast} />          
                 </ImageBackground>
             </View>
