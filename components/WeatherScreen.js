@@ -5,7 +5,7 @@ import Weather from './Weather'
 export default class WeatherScreen extends React.Component {  
     static navigationOptions = ({navigation}) => {
         return {
-            headerTitle: (<Text>Weather</Text>),
+            headerTitle: (<Text style={styles.text} >Weather</Text>),
         }
     }
 
@@ -15,3 +15,7 @@ export default class WeatherScreen extends React.Component {
       );
     }
   }
+  const styles = StyleSheet.create({
+    text: {width: '100%', textAlign: 'center',},
+    
+  });
