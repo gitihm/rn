@@ -12,9 +12,9 @@ const availableZipItems = [
 
 const ZipItem = ({place, code, navigate}) => (
     <TouchableHighlight onPress={() => navigate('Weather',{zipCode:code})}>
-        <View>
-            <Text >{place}</Text>
-            <Text >{code}</Text>
+        <View style={styles.viewtable}>         
+            <Text style={styles.text}>{place}</Text>
+            <Text style={styles.text}>{code}</Text>
         </View>
     </TouchableHighlight>
     
@@ -44,6 +44,6 @@ export default class WeatherScreen extends React.Component {
 }
 const styles = StyleSheet.create({
     Title: {width: '100%',},
-    Right: { paddingRight: 15,color: '#17a2b8',}
-    
+    viewtable: { flex: 1, alignSelf: 'stretch', flexDirection: 'row' },
+    text:{ fontSize: 20 ,flex: 1,paddingLeft:30},
   });
