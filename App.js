@@ -10,8 +10,8 @@ const RootStack = createStackNavigator({
   Weather: WeatherScreen,
   ZipCode: ZipCodeScreen
 },{
-  initialRouteName: 'Weather',
-  //initialRouteParams: {zipCode: '90110'}
+  initialRouteName: 'ZipCode',
+  initialRouteParams: {zipCode: '90110'}
 })
 
 export default class App extends React.Component {
