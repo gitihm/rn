@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { StyleSheet, FlatList, View, Text, TouchableHighlight } from 'react-native';
 
 const availableZipItems = [
