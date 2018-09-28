@@ -30,7 +30,14 @@ export default class Weather extends React.Component {
           });
       } 
       componentDidMount = () => this.fetchData()
+      componentDidUpdate = (prevProps) => {
+        if (prevProps.zipCode !== this.props.zipCode) {
+          this.fetchData()
+        }
+      }
+    
     render() {    
+      console.log("in weather:"+this.props.zipCode)
         return (
             <View style={styles.container}>
                 <ImageBackground source={require('./bg.jpeg')} style= {styles.backdrop}>  
