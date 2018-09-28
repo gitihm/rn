@@ -7,7 +7,7 @@ export default class Weather extends React.Component {
       super(props);
       this.state = {     
         forecast: {
-         zipcode:'zipcode', main: 'main', description: 'description', temp: 0
+         zipcode:'-', main: '-', description: '-', temp: 0
         }
       }
     }
