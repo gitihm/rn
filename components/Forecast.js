@@ -14,8 +14,9 @@ export default class Forecast extends React.Component {
                     <Text style= {styles.text3}>{"\n"}{this.props.description}</Text>
                     <Text style= {styles.text4}>{"\n"}{this.props.temp} °C</Text>
                 </View>
-            
-            </View>              
+                <Text style= {styles.text5}>{"\n"}5935512030 - Ismael hama</Text>
+            </View>  
+                        
         );
     }
 }
@@ -25,4 +26,5 @@ const styles = StyleSheet.create({
     text2: {textAlign: 'center' , fontSize: 30 , color:'white'},
     text3: {textAlign: 'center' , fontSize: 18 , color:'white'},
     text4: {textAlign: 'center' , fontSize: 28 , color:'white'},
+    text5: {textAlign: 'center' , fontSize: 28 , color:'black'}
   });
