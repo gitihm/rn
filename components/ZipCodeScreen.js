@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, FlatList, View, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, FlatList, View, Text, TouchableHighlight ,ImageBackground} from 'react-native';
 
 const availableZipItems = [
   { place: 'Hatyai', code: '90110' },
@@ -8,13 +8,15 @@ const availableZipItems = [
   { place: 'Chiangmai', code: '50000' },
   { place: 'Khonkaen', code: '40000' },
   { place: 'Chonburi', code: '20000' },
+  { place: 'Yala', code: '94230' },
+  { place: 'Surat Thani', code: '84000' },
 ]
 
 const ZipItem = ({place, code, navigate}) => (
     <TouchableHighlight onPress={() => navigate('Weather',{zipCode:code})}>
         <View style={{flex:1,flexDirection: 'row',}}>
-            <Text style={{flex:1,textAlign:"left", fontSize: 16}}>{place}</Text>
-            <Text style={{flex:1,textAlign:"right", fontSize: 16}} >{code}</Text>
+            <Text style={{flex:1,textAlign:"left", fontSize: 30}}>{place}</Text>
+            <Text style={{flex:1,textAlign:"right", fontSize: 30}} >{code}</Text>
         </View>
     </TouchableHighlight>
     
@@ -33,6 +35,8 @@ export default class WeatherScreen extends React.Component {
     const { navigate } = this.props.navigation;
     
     return (
+      <View style={styles.container}>
+                <ImageBackground source={require('./bg.jpg')} style= {styles.backdrop}>  
       <View>
         <FlatList
           data={availableZipItems}
@@ -40,11 +44,14 @@ export default class WeatherScreen extends React.Component {
           renderItem={({item}) => <ZipItem {...item} navigate={navigate}/>}
         />
       </View>
+      </ImageBackground>
+            </View>
     );
   }
 }
 const styles = StyleSheet.create({
     Title: {width: '100%',},
-
+    container: { paddingTop: 25 },
+    backdrop: { width: '100%', height: '100%'},
     
   });
