@@ -22,8 +22,8 @@ const ZipItem = ({place, code, navigate}) => (
 
  
 const _keyExtractor = item => item.code
-
 export default class WeatherScreen extends React.Component {
+  
   static navigationOptions = ({navigation}) => {
     return {
         headerTitle: (<Text style={styles.Title}>Choose a zip code</Text>),
@@ -31,6 +31,7 @@ export default class WeatherScreen extends React.Component {
   }
   render() {
     const { navigate } = this.props.navigation;
+    
     return (
       <View>
         <FlatList

@@ -7,7 +7,7 @@ export default class Weather extends React.Component {
       super(props);
       this.state = {     
         forecast: {
-         zipcode:'-', main: '-', description: '-', temp: 0
+         zipcode:'-', main: '-', description: '-', temp: 0,place:'',
         }
       }
     }
@@ -21,7 +21,9 @@ export default class Weather extends React.Component {
                     zipcode: this.props.zipCode,
                     main: json.weather[0].main,
                     description: json.weather[0].description,
-                    temp: json.main.temp
+                    temp: json.main.temp,
+                    place:json.name,
+                    
                 }
               });
           })
@@ -40,7 +42,7 @@ export default class Weather extends React.Component {
       console.log("in weather:"+this.props.zipCode)
         return (
             <View style={styles.container}>
-                <ImageBackground source={require('./bg.jpeg')} style= {styles.backdrop}>  
+                <ImageBackground source={require('./bg.jpg')} style= {styles.backdrop}>  
                     <Forecast {...this.state.forecast} />          
                 </ImageBackground>
             </View>
